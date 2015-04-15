@@ -23,7 +23,7 @@ module Pronto
 
     def slug
       @slug ||= begin
-        host = URI.split(endpoint)[2, 2].compact.join(':')
+        host = URI.split(endpoint)[2]
         slug = @repo.remote_urls.map do |url|
           match = /.*#{host}(:|\/)(?<slug>.*).git/.match(url)
           match[:slug] if match
